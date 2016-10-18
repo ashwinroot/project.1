@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @quizmaster.user %>
+</p>
+
+<p>
+  <strong>Quizid:</strong>
+  <%= @quizmaster.quizid %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @quizmaster.score %>
+</p>
+
+<p>
+  <strong>Quiz:</strong>
+  <%= @quizmaster.quiz %>
+</p>
+
+<%= link_to 'Edit', edit_quizmaster_path(@quizmaster) %> |
+<%= link_to 'Back', quizmasters_path %>

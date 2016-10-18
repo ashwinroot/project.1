@@ -1,0 +1,31 @@
+<h1>Listing quizmasters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Quizid</th>
+      <th>Score</th>
+      <th>Quiz</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @quizmasters.each do |quizmaster| %>
+      <tr>
+        <td><%= quizmaster.user %></td>
+        <td><%= quizmaster.quizid %></td>
+        <td><%= quizmaster.score %></td>
+        <td><%= quizmaster.quiz %></td>
+        <td><%= link_to 'Show', quizmaster %></td>
+        <td><%= link_to 'Edit', edit_quizmaster_path(quizmaster) %></td>
+        <td><%= link_to 'Destroy', quizmaster, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Quizmaster', new_quizmaster_path %>

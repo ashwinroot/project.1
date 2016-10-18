@@ -1,0 +1,1 @@
+json.partial! "quizmasters/quizmaster", quizmaster: @quizmaster

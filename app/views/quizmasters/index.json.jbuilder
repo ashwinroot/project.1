@@ -1,0 +1,1 @@
+json.array! @quizmasters, partial: 'quizmasters/quizmaster', as: :quizmaster

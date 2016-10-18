@@ -1,0 +1,14 @@
+<%= simple_form_for(@quizmaster) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.input :quizid %>
+    <%= f.input :score %>
+    <%= f.association :quiz %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
