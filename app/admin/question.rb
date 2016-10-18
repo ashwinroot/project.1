@@ -1,4 +1,5 @@
 ActiveAdmin.register Question do
+  permit_params :id, :question, :option1, :option2, :option3, :correct
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
