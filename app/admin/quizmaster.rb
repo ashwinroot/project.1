@@ -1,4 +1,5 @@
 ActiveAdmin.register Quizmaster do
+  permit_params :quizid, :score
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
