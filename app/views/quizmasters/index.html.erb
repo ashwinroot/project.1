@@ -1,31 +1,38 @@
-<h1>Listing quizmasters</h1>
-
-<table>
+<%- model_class = Quizmaster -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Quizmaster %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>User</th>
-      <th>Quizid</th>
-      <th>Score</th>
-      <th>Quiz</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:quizid) %></th>
+      <th><%= model_class.human_attribute_name(:score) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @quizmasters.each do |quizmaster| %>
       <tr>
-        <td><%= quizmaster.user %></td>
+        <td><%= quizmaster.id %></td>
         <td><%= quizmaster.quizid %></td>
         <td><%= quizmaster.score %></td>
-        <td><%= quizmaster.quiz %></td>
-        <td><%= link_to 'Show', quizmaster %></td>
-        <td><%= link_to 'Edit', edit_quizmaster_path(quizmaster) %></td>
-        <td><%= link_to 'Destroy', quizmaster, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l quizmaster.created_at, format: :long %></td>
+        <td>
+          <%= link_to quizmaster_path(quizmaster), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to quizmaster_path(quizmaster), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Quizmaster', new_quizmaster_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_quizmaster_path,
+            :class => 'btn btn-primary' %>
